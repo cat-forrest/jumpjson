@@ -26,9 +26,11 @@ public class JumperJson {
     public String getValue(String name) {
         int begin = json.indexOf("\"" + name + "\"");
         int end = json.indexOf(":", begin + 1);
+
         if (end - begin != name.length() + 2) {
             return null;
         }
+
         if (json.substring(end + 1, end + 2).equals("[")) {
             return null;
         }
