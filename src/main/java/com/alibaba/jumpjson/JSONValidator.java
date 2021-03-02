@@ -8,6 +8,7 @@ import java.io.Reader;
 import com.alibaba.jumpjson.error.JSONException;
 
 public abstract class JSONValidator implements Cloneable, Closeable {
+
     public enum Type {
         Object, Array, Value
     }
@@ -32,6 +33,10 @@ public abstract class JSONValidator implements Cloneable, Closeable {
     public static JSONValidator from(String jsonStr) {
         return new UTF16Validator(jsonStr);
     }
+
+    //public static UTF16Validator go(String jsonStr) {
+    //    return new UTF16Validator(jsonStr);
+    //}
 
     public static JSONValidator from(Reader r) {
         return new ReaderValidator(r);
@@ -494,6 +499,10 @@ public abstract class JSONValidator implements Cloneable, Closeable {
             next();
             skipWhiteSpace();
         }
+
+        //public String getStr(){
+        //    return str;
+        //}
 
         void next() {
             ++pos;

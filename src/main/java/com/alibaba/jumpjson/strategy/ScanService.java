@@ -7,11 +7,17 @@ package com.alibaba.jumpjson.strategy;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.alibaba.jumpjson.util.Glue;
+
 /**
  * @author yanhe
  * @version SearchService.java, v 0.1 2021年02月28日 20:37 yanhe
  */
-public abstract class SearchService {
+public abstract class ScanService {
+
+    //private ScanService() {
+    //
+    //}
 
     private final static Map<String, Object> box = new HashMap<>();
 
@@ -19,8 +25,15 @@ public abstract class SearchService {
         box.put("\"", new StringSearcher());
     }
 
-    public abstract int getStartIndex();
+    public int getStartIndex(String json, String key) {
+        Glue.buildBeginNode(key);
+        return 0;
+    }
 
-    public abstract int getEndIndex();
+    public int getEndIndex() {
+        return 0;
+    }
+
+    //public getString()
 
 }

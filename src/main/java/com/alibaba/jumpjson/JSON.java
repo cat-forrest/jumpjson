@@ -4,16 +4,19 @@
  */
 package com.alibaba.jumpjson;
 
+import com.alibaba.jumpjson.strategy.ScanService;
+
 /**
  * @author yanhe
  * @version JSON.java, v 0.1 2021年02月28日 21:05 yanhe
  */
-public class JSON {
+public class JSON extends ScanService {
 
-    public JSON() {
+    protected final String text;
+
+    public JSON(String json) {
+        this.text = json;
     }
-
-    private static String indexJson;
 
     /**
      * 为了保证正确性，首先校验是否合法
@@ -24,8 +27,7 @@ public class JSON {
     public static JSONObject parseObject(String json) {
         JSONValidator from = JSONValidator.from(json);
         if (from.validate()) {
-            indexJson = json;
-            return JSONObject.init();
+            return new JSONObject(json);
         } else {
             throw new RuntimeException("非法的json字符串");
         }
