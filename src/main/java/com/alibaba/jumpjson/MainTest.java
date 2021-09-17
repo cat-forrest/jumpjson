@@ -29,6 +29,7 @@ public class MainTest {
         long res = end - begin;
         System.out.println(validate + "~~~~~结束~~~~~~~" + res);
         JSONObject jsonObject = JSONObject.parseObject(bigjson);
+
         //JSONObject.parse(bigjson);
         JSON jsonObject1 = JSON.parseObject(bigjson);
 
